@@ -1,0 +1,17 @@
+The Catcher in the Rye|J.D. Salinger|Bildungsroman|1951|Little, Brown and Company|214
+The Great Gatsby|F. Scott Fitzgerald|Novel|1925|Charles Scribner's Sons|180
+To Kill a Mockingbird|Harper Lee|Novel|1960|Harper & Row|281
+Nineteen Eighty-Four|George Orwell|Novel|1949|Secker & Warburg|328
+Animal Farm|George Orwell|Fable|1945|Secker & Warburg|88
+Lord of the Flies|William Golding|Novel|1954|Fabers and Fabers| 256
+ Brave New World|Aldous Huxley|Science fiction|1932|Chatto & Windus|288
+Heart of Darkness|Joseph Conrad|Novella|1902|Blackwood's Magazine|112
+A Tale of Two Cities|Charles Dickens|Historical fiction|1859|Chapman & Hall|368
+The Picture of Dorian Gray|Oscar Wilde|Horror fiction|1890|Ward, Lock & Co|352
+Dracula|Bram Stoker|Horror fiction|1897| Archibald Constable and Company|472
+Frankenstein|Mary Shelley|Science fiction|1818|Lackington, Hughes, Harding, Mavor & Jones|272
+The War of the Worlds|H. G. Wells|Science fiction|1898|William Heinemann|192
+The Time Machine|H. G. Wells|Science fiction|1895|William Heinemann|128
+The Hitchhiker's Guide to the Galaxy|Douglas Adams|Science fiction|1979|Pan Books|224
+The Silence of the Lambs|Thomas Harris|Horror fiction|1988|St. Martin's Press|368
+Misery|Stephen King|Horror fiction|1987|Viking Press|496
