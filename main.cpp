@@ -35,11 +35,12 @@ int main()
             {
                 std::cout << "Choose report : " << std::endl;
                 std::cout << "1. Show all books by the same author" << std::endl;
-                std::cout << "2. Show all books of a given genre and publisher" << std::endl;
-                std::cout << "3. Show the name of the publisher with the maximum quantity of the books" << std::endl;
-                std::cout << "4. Show TOP-3 genres (popularity is determined by the number of books in the genre)" << std::endl;
-                std::cout << "5. Show all books" << std::endl;
-                std::cout << "6. Back to menu" << std::endl;
+                std::cout << "2. Show all books of a given genre" << std::endl;
+                std::cout << "3. Show all books of a given genre and publisher" << std::endl;
+                std::cout << "4. Show the name of the publisher with the maximum quantity of the books" << std::endl;
+                std::cout << "5. Show TOP-3 genres (popularity is determined by the number of books in the genre)" << std::endl;
+                std::cout << "6. Show all books" << std::endl;
+                std::cout << "7. Back to menu" << std::endl;
                 std::cin >> report;
                 if (report == 1)
                 {
@@ -57,12 +58,15 @@ int main()
                 {
                     book::showpublisherwithmaxbooks(collection);
                 }
-
                 else if (report == 5)
+                {
+                    book::showtop3genres(collection);
+                }
+                else if (report == 6)
                 {
                     book::printbooks(collection);
                 }
-                else if (report == 6)
+                else if (report == 7)
                 {
                     break;
                 }
