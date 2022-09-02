@@ -41,7 +41,8 @@ void book::deletebook(std::vector<book>&collection)
 {
     std::string name;
     std::cout << "Enter the name of the book you want to delete : " << std::endl;
-    std::cin >> name;
+    std::cin.ignore();
+    std::getline(std::cin, name);
     int i = 0;
     for (auto it = collection.begin(); it != collection.end(); it++)
     {
@@ -71,19 +72,21 @@ void book::printbooks(std::vector<book> collection)
 
 void book::showbooksbyauthor(std::vector<book> collection)
 {
+    bool flag;
     std::string name;
     std::cout << "Enter author's name : " << std::endl;
-    std::cin >> name;
+    std::cin.ignore();
+    std::getline(std::cin, name);
     int i = 0;
     for (auto it = collection.begin(); it != collection.end(); it++)
     {
         if ((*it).author == name)
         {
             std::cout << (*it).name << " | " << (*it).author << " | " << (*it).genre << " | " << (*it).year << " | " << (*it).publisher << " | " << (*it).pages << std::endl;
+            flag = true;
         }
-        i++;
     }
-    if (i == collection.size())
+    if (!flag)
     {
         std::cout << "Books not found" << std::endl;
     }
@@ -91,9 +94,11 @@ void book::showbooksbyauthor(std::vector<book> collection)
 
 void book::showbooksbygenre(std::vector<book> collection)
 {
+    bool flag;
     std::string name;
     std::cout << "Enter genre : " << std::endl;
-    std::cin >> name;
+    std::cin.ignore();
+    std::getline(std::cin, name);
     int i = 0;
     for (auto it = collection.begin(); it != collection.end(); it++)
     {
@@ -101,9 +106,9 @@ void book::showbooksbygenre(std::vector<book> collection)
         {
             std::cout << (*it).name << " | " << (*it).author << " | " << (*it).genre << " | " << (*it).year << " | " << (*it).publisher << " | " << (*it).pages << std::endl;
         }
-        i++;
+        flag = true;
     }
-    if (i == collection.size())
+    if (!flag)
     {
         std::cout << "Books not found" << std::endl;
     }
@@ -111,12 +116,15 @@ void book::showbooksbygenre(std::vector<book> collection)
 
 void book::showbooksbygenreandpublisher(std::vector<book> collection)
 {
+    bool flag;
     std::string name;
     std::string publisher;
     std::cout << "Enter genre : " << std::endl;
-    std::cin >> name;
+    std::cin.ignore();
+    std::getline(std::cin, name);
     std::cout << "Enter publisher : " << std::endl;
-    std::cin >> publisher;
+    std::cin.ignore();
+    std::getline(std::cin, publisher);
     int i = 0;
     for (auto it = collection.begin(); it != collection.end(); it++)
     {
@@ -124,9 +132,9 @@ void book::showbooksbygenreandpublisher(std::vector<book> collection)
         {
             std::cout << (*it).name << " | " << (*it).author << " | " << (*it).genre << " | " << (*it).year << " | " << (*it).publisher << " | " << (*it).pages << std::endl;
         }
-        i++;
+        flag = true;
     }
-    if (i == collection.size())
+    if (!flag)
     {
         std::cout << "Books not found" << std::endl;
     }
@@ -134,6 +142,12 @@ void book::showbooksbygenreandpublisher(std::vector<book> collection)
 
 void book::showpublisherwithmaxbooks(std::vector<book> collection)
 {
+    if(collection.empty())
+    {
+        std::cout << "Books not found" << std::endl;
+        return;
+    }
+
     std::vector<int> count;
     std::vector<std::string> publisher;
     for (auto it = collection.begin(); it != collection.end(); it++)
@@ -174,6 +188,11 @@ void book::showpublisherwithmaxbooks(std::vector<book> collection)
 
 void book::showtop3genres(std::vector<book> collection)
 {
+    if(collection.empty())
+    {
+        std::cout << "Books not found" << std::endl;
+        return;
+    }
     std::vector<int> count;
     std::vector<std::string> genre;
     for (auto it = collection.begin(); it != collection.end(); it++)
@@ -228,7 +247,8 @@ void book::savecollectiontofile(std::vector<book> collection)
     fout.close();
 }
 
-void book::loadcollectionfromfile(std::vector<book>&collection) //not working properly with multiple books
+
+void book::loadcollectionfromfile(std::vector<book>&collection)
 {
     std::ifstream fin;
     fin.open("bookcollection.txt", std::ios::in);
@@ -242,15 +262,15 @@ void book::loadcollectionfromfile(std::vector<book>&collection) //not working pr
     int i_pages;
     while (!fin.eof())
     {
+        if(fin.peek() == EOF) { break; };
         std::getline(fin, name, '|');
         std::getline(fin, author, '|');
         std::getline(fin, genre, '|');
-        std::getline(fin, year , '|');
+        std::getline(fin, year, '|');
         std::getline(fin, publisher, '|');
-        std::getline(fin, pages, '|');
+        std::getline(fin, pages, '\n');
         i_year = std::stoi(year);
         i_pages = std::stoi(pages);
-        fin >> name >> author >> genre >> year >> publisher >> pages;
         book newbook(name, author, genre, i_year, publisher, i_pages);
         collection.push_back(newbook);
 
